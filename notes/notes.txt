@@ -1,0 +1,42 @@
+##1 Here are some changes from the Vagrant system used for this theme. It may help.
+
+
+mkdir ~/.composer/
+vi ~/.composer/config.json
+composer update
+composer –update-with-dependencies
+composer update –update-with-dependencies
+composer self-update && composer global update
+ composer g require --dev automattic/vipwpcs
+phpcodesniffer-composer-installer -W
+composer self-update && composer global update
+composer –update-with-dependencies
+composer self-update && composer global update
+phpcodesniffer-composer-installer -W
+composer update
+npm install
+exit
+yum update
+
+yum install -y gcc-c++ make
+curl -sL https://rpm.nodesource.com/setup_8.x | sudo -E bash -
+curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+sudo yum install yarn
+npm install --unsafe-perm -g node-sass
+node-sass
+npm install -g less
+rm -Rf package-lock.json
+npm install
+npm run build
+npm clean
+npm install
+rm -Rf node_modules
+
+
+Hey check this bug...When deleting a multisite - site in subdirectory mode.
+
+Deprecated: delete_blog is deprecated since version 5.1.0 with no alternative available. in /home/ev3rywh3re/swampthings.org/wp-includes/functions.php on line 5701
+
+Warning: Cannot modify header information - headers already sent by (output started at /home/ev3rywh3re/swampthings.org/wp-includes/functions.php:5701) in /home/ev3rywh3re/swampthings.org/wp-includes/pluggable.php on line 1355
+
+Warning: Cannot modify header information - headers already sent by (output started at /home/ev3rywh3re/swampthings.org/wp-includes/functions.php:5701) in /home/ev3rywh3re/swampthings.org/wp-includes/pluggable.php on line 1358

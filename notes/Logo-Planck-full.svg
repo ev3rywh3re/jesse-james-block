@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="597.47" height="587.23" enable-background="new 0 0 612 792" onload="init(evt)" version="1.1" viewBox="0 0 597.47498 587.23169" xmlns="http://www.w3.org/2000/svg">
+ <script type="text/ecmascript">var svg;
+   function init(evt) {
+     if (window.svgDocument == null) {
+       svg = evt.target.ownerDocument;
+     }
+     addRotateTransform("planck_logo", 12, 1);
+   }
+   function addRotateTransform(target_id, dur, dir) {
+     var my_element = svg.getElementById(target_id);
+     var a = svg.createElementNS("http://www.w3.org/2000/svg", "animateTransform");
+     var bb = my_element.getBBox();
+     var cx = bb.x + bb.width/2;
+     var cy = bb.y + bb.height/2;
+     a.setAttributeNS(null, "attributeName", "transform");
+     a.setAttributeNS(null, "attributeType", "XML");
+     a.setAttributeNS(null, "type", "rotate");
+     a.setAttributeNS(null, "dur", dur + "s");
+     a.setAttributeNS(null, "repeatCount", "indefinite");
+     a.setAttributeNS(null, "from", "0 "+cx+" "+cy);
+     a.setAttributeNS(null, "to", 360*dir+" "+cx+" "+cy);
+     my_element.appendChild(a);
+     a.beginElement();
+   }</script>
+ <g id="planck_logo">
+  <g transform="translate(-7.631 -102.54)" fill="#010101">
+   <ellipse cx="42.792" cy="243.16" rx="35.161" ry="30.644"/>
+   <ellipse cx="42.792" cy="500.58" rx="35.161" ry="30.646"/>
+   <path d="m563.6 203.4c-26.766-26.769-63.463-41.513-103.34-41.513-46.388 0-93.007 20.025-127.92 54.942-1.501 1.5-2.819 3.142-4.269 4.686v-61.852c10.845-1.694 21.562-4.269 32.045-7.822 13.253-4.491 20.343-18.867 15.858-32.112-4.483-13.24-18.878-20.337-32.115-15.849-14.67 4.977-29.932 7.499-45.377 7.499-12.942 0-25.799-1.75-38.18-5.193-13.485-3.75-27.429 4.135-31.19 17.606-3.741 13.477 4.139 27.435 17.606 31.18 10.054 2.797 20.342 4.664 30.709 5.799v183.28c0 0.237-0.035 0.468-0.035 0.699 0 0.268 0.035 0.531 0.035 0.799v287.08c-10.849 1.695-21.561 4.286-32.047 7.825-13.253 4.502-20.343 18.879-15.84 32.114 4.484 13.256 18.858 20.34 32.111 15.841 14.673-4.979 29.936-7.5 45.367-7.5 12.971 0 25.813 1.75 38.177 5.194 13.469 3.761 27.428-4.119 31.188-17.586 3.761-13.471-4.119-27.43-17.588-31.189-10.055-2.788-20.325-4.663-30.726-5.805v-175.26c61.01 51.02 157.94 42.563 222.09-21.61 34.914-34.906 54.944-81.529 54.944-127.91 0-39.875-14.735-76.578-41.508-103.35zm-49.238 195.44c-47.722 47.713-119.33 53.746-159.65 13.435-16.998-17.004-26.427-40.634-26.64-66.616v-1.667c0.231-32.807 14.77-66.065 40.073-91.36 25.485-25.488 59.063-40.107 92.116-40.107 26.34 0 50.324 9.474 67.535 26.674 17.193 17.207 26.671 41.195 26.671 67.542 1e-3 33.052-14.619 66.619-40.105 92.099z"/>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My HTML Page</title>
+
+<<style media="screen">
+  .link-style-1 a {
+    color: rgba(0, 0, 0, 0.9);
+    text-decoration: none;
+    position: relative;
+    white-space: nowrap;
+    transition: color 0.3s;
+  }
+  .link-style-1 a:after, .link-style-1 a:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -0.125em;
+    right: -0.125em;
+    z-index: -1;
+  }
+  .link-style-1 a:before {
+    background-color: rgba(0, 0, 0, 0.9);
+    bottom: -0.0625em;
+    height: 1px;
+  }
+  .link-style-1 a:after {
+    background-color: blue;
+    animation: linkUnderlineOut 0.3s forwards;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    transform-origin: bottom left;
+    transform: scaleY(0);
+  }
+  .link-style-1 a:hover {
+    color: white;
+  }
+  .link-style-1 a:hover:before {
+    background-color: blue;
+  }
+  .link-style-1 a:hover:after {
+    animation: linkUnderlineIn 0.3s forwards;
+  }
+  @keyframes linkUnderlineIn {
+    0% {
+      transform: scaleY(0);
+    }
+    50% {
+      transform: scaleY(1.1);
+    }
+    63% {
+      transform: scaleY(0.9);
+    }
+    88% {
+      transform: scaleY(2.05);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+  }
+  @keyframes linkUnderlineOut {
+    0% {
+      transform: scaleY(1);
+    }
+    100% {
+      transform: scaleY(0);
+    }
+  }
+
+  .link-style-2 a {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.9);
+    color: rgba(0, 0, 0, 0.9);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    background-size: 100% 200%;
+    background-image: linear-gradient(to top, transparent 0%, transparent 50%, blue 50%, blue 100%);
+    background-position: 0 100%;
+    will-change: background-position;
+  }
+  .link-style-2 a:hover {
+    animation: backgroundAnimateIn 0.3s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes backgroundAnimateIn {
+    0% {
+      background-position: 0 -100%;
+    }
+    63% {
+      background-position: 0 -95%;
+    }
+    86% {
+      background-position: 0 2.5%;
+    }
+    100% {
+      color: white;
+      background-position: 0 0%;
+    }
+  }
+  body {
+    padding: 2vw;
+    margin: 0;
+  }
+
+  section {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 540px;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  ul {
+    font-size: 0.8125rem;
+  }
+  ul li {
+    margin-bottom: 0.75em;
+  }
+
+  code {
+    background-color: #363636;
+    color: white;
+    font-size: 0.8125em;
+  }
+
+  /*# sourceMappingURL=temp.css.map */
+
+</style>
+</head>
+<body>
+
+  <section>
+  	<h1>Two Animated Link Styles</h1>
+  </section>
+  <section class="link-style-1">
+  	<h3>1 - Two Pseudo Elements</h3>
+  	<p>Lots of fun possibilities, but requires <code>white-space: nowrap;</code> to work correctly. Temporibus ex doloribus iure, <a href="#">dolore quos optio</a> numquam illum, voluptatibus eius delectus laboriosam possimus quia unde suscipit culpa quod minima sint consectetur!</p>
+  	<p>
+  		<ul>
+  			<li class="pro">Uses CSS3 transform property for those sweet gainz.</li>
+  			<li class="con">Only works with <code>&nbsp;white-space: no-wrap&nbsp;</code>(<em>must</em> be one single line)</li>
+  		</ul>
+  	</p>
+  </section>
+
+  <section class="link-style-2">
+  	<h3>2 - Animated Background Image</h3>
+  <p>This way is great. The only limitations are that we are animating the background position only and that this does not use CSS3 transform. Temporibus ex doloribus iure, <a href="#">dolore quos optio</a> numquam illum, <a href="#">even long links OK -> laboriosam possimus quia unde suscipit culpa quod minima sint consectetur!</a></p>
+  	<p>
+  		<ul>
+  			<li class="pro">Works on links that wrap across multiple lines.</li>
+  			<li class="con">Animates the <code>&nbsp;background-position&nbsp;</code> property, so no sweet GPU love :/</li>
+  			<li class="con">Relatively limited.</li>
+  		</ul>
+  	</p>
+  </section>
+
+</body>
+</html>
+

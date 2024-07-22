@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My HTML Page</title>
+
+
+
+
+	<style media="screen">
+
+	@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+	h2 {
+	  vertical-align: center;
+	  text-align: center;
+	}
+
+	html, body {
+	  margin: 0;
+	  height: 100%;
+	}
+
+	* {
+	  font-family: "Raleway";
+	  box-sizing: border-box;
+	}
+
+/* Start - Multisite Menu */
+
+:root {
+	--mainColor: #066000;
+}
+
+body.logged-in > .site-header-fixed- {
+  top: 32px !important;
+}
+
+.site-header-fixed- {
+	position: fixed;
+	z-index: 9998;
+	width: 100%;
+	grid-template-columns: 100px 1fr;
+	background-color: #fff;
+	top: 0;
+	padding-top: .3em;
+	padding-bottom: .3em;
+	padding-left: 0;
+	padding-right: 0;
+	margin: 0 0 0 0;
+}
+
+.stg-logo-svg {
+	width: 42px;
+	height: auto;
+}
+
+.stg-ms-nav {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #fff;
+	color: #000;
+	height: 50px;
+	padding: 1em;
+}
+
+.stg-ms-menu {
+	display: flex;
+	flex-direction: row;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.stg-ms-menu a {
+	background: linear-gradient(to bottom, var(--mainColor) 0%, var(--mainColor) 100%);
+	background-position: 0 100%;
+	background-repeat: repeat-x;
+	background-size: 3px 3px;
+	color: #000;
+	text-decoration: none;
+}
+
+.stg-ms-menu a:hover {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23066000' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+	background-position: 0 100%;
+	background-size: auto 6px;
+	background-repeat: repeat-x;
+	text-decoration: none;
+}
+
+.stg-ms-menu > li {
+	margin: 0 1rem;
+}
+
+.stg-menu-button-container {
+	display: none;
+	height: 100%;
+	width: 2em;
+	cursor: pointer;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#stg-menu-toggle {
+	display: none;
+}
+
+.stg-menu-button,
+.stg-menu-button::before,
+.stg-menu-button::after {
+	display: block;
+	background-color: #000;
+	position: absolute;
+	height: .2em;
+	width: 2em;
+	transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.stg-menu-button::before {
+	content: "";
+	margin-top: -8px;
+}
+
+.stg-menu-button::after {
+	content: "";
+	margin-top: 8px;
+}
+
+#stg-menu-toggle:checked + .stg-menu-button-container .stg-menu-button::before {
+	margin-top: 0px;
+	transform: rotate(405deg);
+}
+
+#stg-menu-toggle:checked + .stg-menu-button-container .stg-menu-button {
+	background: none;
+}
+
+#stg-menu-toggle:checked + .stg-menu-button-container .stg-menu-button::after {
+	margin-top: 0px;
+	transform: rotate(-405deg);
+}
+
+@media (max-width: 700px) {
+
+	.stg-menu-button-container {
+	display: flex;
+	}
+
+	.stg-ms-menu {
+		position: absolute;
+		top: 0;
+		margin-top: 50px;
+		left: 0;
+		flex-direction: column;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+	}
+
+	/* Menu toggle */
+	#stg-menu-toggle ~ .stg-ms-menu li {
+		display: none;
+		height: 0;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+	}
+
+	#stg-menu-toggle:checked ~ .stg-ms-menu li {
+		display: block;
+		border-top: 1px solid #333;
+		height: 2.5em;
+		padding: 0.5em;
+		text-align: center;
+		transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+	}
+
+	.stg-ms-menu > li {
+		display: flex;
+		justify-content: center;
+		margin: 0;
+		padding: 0.5em 0;
+		width: 100%;
+		color: #000;
+		background-color: #fff;
+	}
+
+	.stg-ms-menu > li:not(:last-child) {
+		border-bottom: 1px solid #444;
+	}
+}
+
+/* End - Multisite Menu */
+
+
+	.test-content {
+		height: 1000px;
+	}
+
+</style>
+
+<script src="./jesse_james.js"></script>
+
+</head>
+
+<body>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<div id="stg-multisite-header" class="stg-multisite-header-">
+
+	<section class="stg-ms-nav">
+		<div class="stg-logo-container">
+			<a id="custom-logo-link" class="custom-logo-link-" href="/">
+				<img src="logo-planck-full-2024.svg" alt="Jesse Planck ;P" class="stg-logo-svg" />
+			</a>
+		</div>
+		<input id="stg-menu-toggle" type="checkbox" />
+		<label class='stg-menu-button-container' for="stg-menu-toggle">
+			<div class='stg-menu-button'></div>
+		</label>
+
+		<ul class="stg-ms-menu" aria-expanded="false">
+			<li><a href="https://swampthings.org/portfolio">Portfolio</a></li>
+			<li><a href="https://swampthings.org/projects">Projects</a></li>
+			<li><a href="https://swampthings.org/about/">About</a></li>
+			<li><a href="https://swampthings.org/contact/">Contact</a></li>
+		</ul>
+	</section>
+
+	</div>
+
+	<h2>Resize window to collapse menu</h2>
+
+	<div class="test-content"> </div>
+
+</body>
+
+066000
+
+ff9800
+
+</html>

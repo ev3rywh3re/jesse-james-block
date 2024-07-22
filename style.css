@@ -1,0 +1,272 @@
+/* stylelint-disable */
+/**
+ * Theme Name:  Jesse James Block
+ * Theme URI:    
+ * Description:  
+ * Author:       Jesse Planck
+ * Author URI:   
+ * Version:      1.0.0
+ * Tested up to: 6.5
+ * Requires PHP: 5.6
+ * License:      GPL-2.0
+ * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:  
+ * Domain Path:  /languages
+ * Tags:         block-styles, custom-colors, custom-logo, custom-menu, e-commerce, editor-style, one-column, theme-options, threaded-comments, translation-ready, wide-blocks
+ * Template:     twentytwentyfour
+ *
+ * This theme, like WordPress, is licensed under the GPL.
+ * Use it to make something cool, have fun, and share what you've learned with others.
+ *
+ * Copyright © 2019 GoDaddy Operating Company, LLC. All Rights Reserved.
+ */
+/* stylelint-enable */
+
+/*
+Jesse James - Theme CSS Start
+*/
+
+/*
+Attempt to fix nexted gallery thumbnail images.
+*/
+
+.wp-block-gallery.has-nested-images figure.wp-block-image img {
+	width: 5em !important;
+  }
+  
+  /* Start - Multisite Menu */
+  
+  :root {
+	--mainColor: #066000;
+  }
+  
+  body.logged-in > .site-header-fixed- {
+	top: 32px !important;
+  }
+  
+  .site-header-fixed- {
+	position: fixed;
+	z-index: 9998;
+	width: 100%;
+	grid-template-columns: 100px 1fr;
+	background-color: #fff;
+	top: 0;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+	padding-left: 0;
+	padding-right: 0;
+	margin: 0 0 0 0;
+  }
+  
+  .stg-logo-svg {
+	width: 42px;
+	height: auto;
+  }
+  
+  .stg-ms-nav {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #fff;
+	color: #000;
+	height: 50px;
+	padding: 1em;
+  }
+  
+  .stg-ms-menu {
+	display: flex;
+	flex-direction: row;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+  }
+  
+  .stg-ms-menu a {
+	background: linear-gradient(
+	  to bottom,
+	  var(--mainColor) 0%,
+	  var(--mainColor) 100%
+	);
+	background-position: 0 100%;
+	background-repeat: repeat-x;
+	background-size: 3px 3px;
+	color: #000;
+	text-decoration: none;
+  }
+  
+  .stg-ms-menu a:hover {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23066000' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+	background-position: 0 100%;
+	background-size: auto 6px;
+	background-repeat: repeat-x;
+	text-decoration: none;
+  }
+  
+  .stg-ms-menu > li {
+	margin: 0 1rem;
+  }
+  
+  .stg-menu-button-container {
+	display: none;
+	height: 100%;
+	width: 2em;
+	cursor: pointer;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  #stg-menu-toggle {
+	display: none;
+  }
+  
+  .stg-menu-button,
+  .stg-menu-button::before,
+  .stg-menu-button::after {
+	display: block;
+	background-color: #000;
+	position: absolute;
+	height: 0.2em;
+	width: 2em;
+	transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .stg-menu-button::before {
+	content: "";
+	margin-top: -8px;
+  }
+  
+  .stg-menu-button::after {
+	content: "";
+	margin-top: 8px;
+  }
+  
+  #stg-menu-toggle:checked + .stg-menu-button-container .stg-menu-button::before {
+	margin-top: 0px;
+	transform: rotate(405deg);
+  }
+  
+  #stg-menu-toggle:checked + .stg-menu-button-container .stg-menu-button {
+	background: none;
+  }
+  
+  #stg-menu-toggle:checked + .stg-menu-button-container .stg-menu-button::after {
+	margin-top: 0px;
+	transform: rotate(-405deg);
+  }
+  
+  @media (max-width: 700px) {
+	.stg-menu-button-container {
+	  display: flex;
+	}
+  
+	.stg-ms-menu {
+	  position: absolute;
+	  top: 0;
+	  margin-top: 50px;
+	  left: 0;
+	  flex-direction: column;
+	  width: 100%;
+	  justify-content: center;
+	  align-items: center;
+	}
+  
+	/* Menu toggle */
+	#stg-menu-toggle ~ .stg-ms-menu li {
+	  display: none;
+	  height: 0;
+	  margin: 0;
+	  padding: 0;
+	  border: 0;
+	  transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+	}
+  
+	#stg-menu-toggle:checked ~ .stg-ms-menu li {
+	  display: block;
+	  border-top: 1px solid #333;
+	  height: 2.5em;
+	  padding: 0.5em;
+	  text-align: center;
+	  transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+	}
+  
+	.stg-ms-menu > li {
+	  display: flex;
+	  justify-content: center;
+	  margin: 0;
+	  padding: 0.5em 0;
+	  width: 100%;
+	  color: #000;
+	  background-color: #fff;
+	}
+  
+	.stg-ms-menu > li:not(:last-child) {
+	  border-bottom: 1px solid #444;
+	}
+  }
+  
+  /* End - Multisite Menu */
+  
+  /* Some code styles */
+  code {
+	background-color: #f9f9f9;
+	border: 1px solid #e1e1e1;
+	border-radius: 3px;
+	color: #333;
+	display: block;
+	font-family: Consolas, Monaco, monospace;
+	font-size: 14px;
+	line-height: 1.4;
+	margin: 0 0 1.5em;
+	overflow: auto;
+	padding: 1em;
+  }
+  
+  /* Homepage Customizations */
+  
+  .home-posts .wp-block-post h2 {
+	margin: 0.2em 0;
+  }
+  
+  .home-posts .wp-block-post .wp-block-post-date {
+	display: inline-block;
+  }
+  
+  .home-posts .wp-block-post {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 100% 100% 10%;
+	grid-gap: 1rem;
+  }
+  
+  /* Single Post Customizations */
+  
+  .single .wp-block-group .wp-block-post-featured-image {
+	padding: 0 2em;
+  }
+  
+  /* Homepage feature post */
+  
+  .home-feature .wp-block-post {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  }
+  
+  .home-feature .wp-block-post-featured-image {
+	  margin-right: 1em; /* Adjust as needed for spacing */
+	  width: 30%;
+	  float: left;
+  }
+  
+  .home-feature .wp-block-post .wp-block-post-date,
+  .home-feature .wp-block-post .wp-block-post-title,
+  .home-feature .wp-block-post .wp-block-post-excerpt,
+  .home-feature .wp-block-post.wp-block-read-more {
+	width: 60%;
+	float:left;
+	clear: none;
+  };
+  
+  

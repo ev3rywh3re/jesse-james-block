@@ -1,0 +1,17 @@
+# Ignore node modules
+/node_modules/
+
+# Ignore build files
+/dist/
+
+# Ignore IDE files
+.idea/
+.vscode/
+
+# Ignore editor files
+.DS_Store
+Thumbs.db
+
+# Ignore local development files
+.env
+.env.local
