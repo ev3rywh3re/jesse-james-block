@@ -1,26 +1,30 @@
 <?php
 /**
- * Jesse James Blocks functions
+ * Jesse_James_Blocks functions
  *
- * @package Go Child
+ * @package Jesse_James_Blocks
  */
 
 /**
  * Theme constants.
  */
-define( 'JESSE_JAMES_BLOCKS_VERSION', '1.0.0' );
+define('JESSE_JAMES_BLOCKS_VERSION', '1.0.0');
 
 /**
  * Add custom blocks for gutenberg
  */
-require get_stylesheet_directory() . '/assets/blocks/blocks.php';
+require_once get_stylesheet_directory() . '/assets/blocks/random_featured_image/random_featured_image.php';
 
-# Add pre-styles.css - for resets, etc.
-add_action( 'wp_enqueue_scripts', function () {
+/**
+ * Add pre-styles.css - for resets, etc.
+ */
+add_action('wp_enqueue_scripts', function () {
 	wp_enqueue_style( 'jess-blocks-child-pre-style', get_stylesheet_directory_uri() . '/assets/css/pre-style.css' );
 });
 
-# Add Child styles.css
+/**
+ * Add Child styles.css
+ */
 add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style( 'jess-blocks-child-style', get_stylesheet_directory_uri() . '/style.css' );
 });
