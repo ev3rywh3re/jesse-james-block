@@ -6,6 +6,25 @@
  */
 
 /**
+ * Enqueue React scripts.
+ * Includes wp-element dependency. 
+ */
+ function jesse_james_react_scripts() {
+
+  wp_enqueue_script(
+    'jesse-james-react-app', 
+    get_stylesheet_directory_uri() . '/build/index.js', 
+    array( 'wp-element', 'wp-data' ), // Add 'wp-data' here
+    '1.0.0', 
+    true 
+  );  
+
+  wp_enqueue_style('jesse-james-react-theme-style', get_stylesheet_uri());
+}
+add_action('wp_enqueue_scripts', 'jesse_james_react_scripts');
+
+
+/**
  * Theme constants.
  */
 define('JESSE_JAMES_BLOCKS_VERSION', '1.0.0');

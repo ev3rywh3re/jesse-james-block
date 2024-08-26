@@ -1,0 +1,1 @@
+(()=>{"use strict";const e=window.wp.element,n=window.ReactJSXRuntime,t=()=>(0,n.jsx)("div",{children:(0,n.jsx)("h1",{children:"Hello from React!"})});(0,e.render)((0,n.jsx)(t,{}),document.getElementById("app"))})();
