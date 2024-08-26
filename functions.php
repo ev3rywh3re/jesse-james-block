@@ -13,7 +13,11 @@ define('JESSE_JAMES_BLOCKS_VERSION', '1.0.0');
 /**
  * Add custom blocks for gutenberg
  */
+<<<<<<< HEAD
 require_once get_stylesheet_directory() . '/assets/blocks/random_featured_image/random_featured_image.php';
+=======
+// require get_stylesheet_directory() . '/assets/blocks/blocks.php';
+>>>>>>> 7fa9384 (Turn off WP blocks for now.)
 
 /**
  * Add pre-styles.css - for resets, etc.
