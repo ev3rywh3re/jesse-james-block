@@ -1,3 +1,5 @@
 [submodule "assets/blocks/jesse-james-wp-block-plugin-scaffold"]
 	path = assets/blocks/jesse-james-wp-block-plugin-scaffold
 	url = https://github.com/ev3rywh3re/jesse-james-wp-block-plugin-scaffold.git
+[submodule "./jesse-james-wp-block-plugin-scaffold"]
+	url = git@github.com:ev3rywh3re/jesse-james-wp-block-plugin-scaffold.git
