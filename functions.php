@@ -51,7 +51,7 @@ function register_block_jesse_james_block_plugin_scaffold() {
 
 //  register_block_type( $block_dir );
 
-include_once( $block_jess_block_plugin_scaffold_experiments );
+// include_once( $block_jess_block_plugin_scaffold_experiments );
 
 }
 add_action( 'init', 'register_block_jesse_james_block_plugin_scaffold' );
