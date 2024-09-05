@@ -33,6 +33,7 @@ define('JESSE_JAMES_BLOCKS_VERSION', '1.0.0');
  * Add custom blocks for gutenberg
  */
 // require get_stylesheet_directory() . '/assets/blocks/blocks.php';
+
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
  * Behind the scenes, it registers also all assets so they can be enqueued
@@ -51,7 +52,7 @@ function register_block_jesse_james_block_plugin_scaffold() {
 
 //  register_block_type( $block_dir );
 
-// include_once( $block_jess_block_plugin_scaffold_experiments );
+ include_once( $block_jess_block_plugin_scaffold_experiments );
 
 }
 add_action( 'init', 'register_block_jesse_james_block_plugin_scaffold' );
