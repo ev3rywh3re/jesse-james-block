@@ -43,16 +43,12 @@ define('JESSE_JAMES_BLOCKS_VERSION', '1.0.0');
  */
 function register_block_jesse_james_block_plugin_scaffold() {
 
+  // Set up block directory
   $block_dir = get_stylesheet_directory() . '/assets/blocks/';
+
+  // Block scaffold experiments
   $block_jess_block_plugin_scaffold_experiments = $block_dir . '/jesse-james-wp-block-plugin-scaffold/jess-block-scaffold-experiments.php';
-
-//  echo " TEST-1:" . $block_dir ;
-//  echo " TEST-2:" . is_dir( $block_dir )  ;
-//	register_block_type( __DIR__ . '/build' );
-
-//  register_block_type( $block_dir );
-
- include_once( $block_jess_block_plugin_scaffold_experiments );
+  include_once( $block_jess_block_plugin_scaffold_experiments );
 
 }
 add_action( 'init', 'register_block_jesse_james_block_plugin_scaffold' );
