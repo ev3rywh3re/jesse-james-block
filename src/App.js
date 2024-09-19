@@ -1,4 +1,4 @@
-import { Component } from '@wordpress/element'; // You might not need this for simple static text
+import { Component } from '@wordpress/element'; 
 import React, { useState, useEffect } from 'react';
 
 function App() {
@@ -6,18 +6,22 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('https://swampthings-local.ddev.site/wp-json/jess-block-scaffold-experiments/v1/open/29453');
-      const data = await response.json();
+      // Dynamically get the origin (protocol, domain, port) of the current page
+      const baseUrl = window.location.origin; 
 
-      // Access the entire figure HTML from the JSON data
-      const figure = data.image; // Assuming "image" key holds the figure element
+      // Construct the full API URL using the base URL
+      const apiUrl = `${baseUrl}/wp-json/jess-block-scaffold-experiments/v1/open/29453`;
+
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      const figure = data.image; 
 
       setFigureHtml(figure);
     };
 
-    const intervalId = setInterval(fetchData, 12000); // Fetch every 12 seconds
+    const intervalId = setInterval(fetchData, 12000); 
 
-    return () => clearInterval(intervalId); // Cleanup function to stop interval on unmount
+    return () => clearInterval(intervalId); 
   }, []);
 
   return (
