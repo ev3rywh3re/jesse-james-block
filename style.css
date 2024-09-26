@@ -44,12 +44,9 @@ Attempt to fix nexted gallery thumbnail images.
 	top: 32px !important;
   }
   
-  
-
-
   .stg-multisite-header- {
 	position: relative;
-
+  
 	z-index: 9998;
 	width: 100%;
 	grid-template-columns: 100px 1fr;
@@ -60,9 +57,8 @@ Attempt to fix nexted gallery thumbnail images.
 	padding-left: 0;
 	padding-right: 0;
 	margin: 0 0 0 0;
-  }  
-
-
+  }
+  
   .site-header-fixed- {
 	position: fixed;
   }
@@ -116,6 +112,32 @@ Attempt to fix nexted gallery thumbnail images.
 	margin: 0 1rem;
   }
   
+  /* Mobile Menu Styles */
+  @media (max-width: 768px) { 
+	.stg-ms-nav {
+	  flex-direction: column;
+	  height: auto;
+	}
+  
+	.stg-ms-menu {
+	  flex-direction: column;
+	  display: none; /* Hide menu by default */
+	}
+  
+	.stg-ms-menu.open { /* Show menu when toggled */
+	  display: flex;
+	}
+  
+	.stg-ms-menu > li {
+	  margin: 0.5rem 0;
+	  width: 100%;
+	}
+  
+	.stg-menu-button-container {
+	  display: block; /* Show the menu button on mobile */
+	}
+  }
+  
   .stg-menu-button-container {
 	display: none;
 	height: 100%;
@@ -165,55 +187,6 @@ Attempt to fix nexted gallery thumbnail images.
 	transform: rotate(-405deg);
   }
   
-  @media (max-width: 700px) {
-	.stg-menu-button-container {
-	  display: flex;
-	}
-  
-	.stg-ms-menu {
-	  position: absolute;
-	  top: 0;
-	  margin-top: 50px;
-	  left: 0;
-	  flex-direction: column;
-	  width: 100%;
-	  justify-content: center;
-	  align-items: center;
-	}
-  
-	/* Menu toggle */
-	#stg-menu-toggle ~ .stg-ms-menu li {
-	  display: none;
-	  height: 0;
-	  margin: 0;
-	  padding: 0;
-	  border: 0;
-	  transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-	}
-  
-	#stg-menu-toggle:checked ~ .stg-ms-menu li {
-	  display: block;
-	  border-top: 1px solid #333;
-	  height: 2.5em;
-	  padding: 0.5em;
-	  text-align: center;
-	  transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-	}
-  
-	.stg-ms-menu > li {
-	  display: flex;
-	  justify-content: center;
-	  margin: 0;
-	  padding: 0.5em 0;
-	  width: 100%;
-	  color: #000;
-	  background-color: #fff;
-	}
-  
-	.stg-ms-menu > li:not(:last-child) {
-	  border-bottom: 1px solid #444;
-	}
-  }
   
   /* End - Multisite Menu */
   
@@ -258,15 +231,15 @@ Attempt to fix nexted gallery thumbnail images.
   /* Homepage feature post */
   
   .home-feature .wp-block-post {
-  position: relative;
-  display: inline-block;
-  width: 100%;
+	position: relative;
+	display: inline-block;
+	width: 100%;
   }
   
   .home-feature .wp-block-post-featured-image {
-	  margin-right: 1em; /* Adjust as needed for spacing */
-	  width: 30%;
-	  float: left;
+	margin-right: 1em; /* Adjust as needed for spacing */
+	width: 30%;
+	float: left;
   }
   
   .home-feature .wp-block-post .wp-block-post-date,
@@ -274,8 +247,7 @@ Attempt to fix nexted gallery thumbnail images.
   .home-feature .wp-block-post .wp-block-post-excerpt,
   .home-feature .wp-block-post.wp-block-read-more {
 	width: 60%;
-	float:left;
+	float: left;
 	clear: none;
-  };
-  
+  }
   
