@@ -74,13 +74,18 @@ add_action( 'wp_enqueue_scripts', function () {
  * Enqueue a script
  */
 function jesse_james_enqueue_scripts() {
-
-  wp_register_script('jesse-james-js', get_stylesheet_directory_uri() . '/assets/js/jesse_james.js','','1.1', true);
-  wp_enqueue_script( 'jesse-james-js', get_stylesheet_directory_uri() . '/assets/js/jesse_james.js', array(), true );
+    wp_enqueue_script( 
+      'jesse-james-js', 
+      get_stylesheet_directory_uri() . '/assets/js/jesse_james.js',
+      array(), 
+      '1.0.0',
+      array(
+        'in_footer' => true,
+        'strategy'  => 'defer',
+      )
+  );
 }
-add_action( 'wp_enqueue_scripts', 'jesse_james_enqueue_scripts', 999999 );
-
-
+add_action( 'wp_enqueue_scripts', 'jesse_james_enqueue_scripts' );
 
 /**
  * Theme scripts and styles.
