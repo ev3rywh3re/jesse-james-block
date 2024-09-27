@@ -10,7 +10,6 @@ This is an experimentat WordPress Child Theme using the twentytwentyfour theme a
 2. Upload the files to your WordPress website's `/wp-content/themes` directory.
 3. Activate the theme from the Appearance > Themes page in your WordPress dashboard.
 
-
 ## License
 
 This theme is licensed under the GPLv3 license.
@@ -18,3 +17,14 @@ This theme is licensed under the GPLv3 license.
 ## Contact
 
 For any questions or support, please contact on Github for now.
+
+### Notes
+
+##### npm
+
+This has the npm basic wordpress packages wp-scripts and elements for block building. Below are additions.
+
+```
+npm install -D tailwindcss
+npx tailwindcss init
+```
