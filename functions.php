@@ -6,11 +6,58 @@
  */
 
 /**
+ * Theme constants.
+ */
+define('JESSE_JAMES_BLOCKS_VERSION', '1.0.0');
+
+
+
+function jesse_james_add_block_template_file_support() {
+  add_theme_support( 'block-templates' );
+  add_theme_support( 'block-template-parts' );
+}
+add_action( 'after_setup_theme', 'jesse_james_add_block_template_file_support' );
+
+
+// Allow SVG
+add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mimes) {
+
+    global $wp_version;
+    if ( $wp_version !== '4.7.1' ) {
+       return $data;
+    }
+  
+    $filetype = wp_check_filetype( $filename, $mimes );
+  
+    return [
+        'ext'             => $filetype['ext'],
+        'type'            => $filetype['type'],
+        'proper_filename' => $data['proper_filename']
+    ];
+  
+  }, 10, 4 );
+  
+function cc_mime_types( $mimes ){
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'cc_mime_types' );
+  
+function fix_svg() {
+    echo '<style type="text/css">
+          .attachment-266x266, .thumbnail img {
+               width: 100% !important;
+               height: auto !important;
+          }
+          </style>';
+}
+add_action( 'admin_head', 'fix_svg' );
+
+/**
  * Enqueue React scripts.
  * Includes wp-element dependency. 
  */
- function jesse_james_react_scripts() {
-
+function jesse_james_react_scripts() {
   wp_enqueue_script(
     'jesse-james-react-app', 
     get_stylesheet_directory_uri() . '/build/index.js', 
@@ -22,38 +69,6 @@
   wp_enqueue_style('jesse-james-react-theme-style', get_stylesheet_uri());
 }
 add_action('wp_enqueue_scripts', 'jesse_james_react_scripts');
-
-
-/**
- * Theme constants.
- */
-define('JESSE_JAMES_BLOCKS_VERSION', '1.0.0');
-
-/**
- * Add custom blocks for gutenberg
- */
-// require get_stylesheet_directory() . '/assets/blocks/blocks.php';
-
-/**
- * Registers the block using the metadata loaded from the `block.json` file.
- * Behind the scenes, it registers also all assets so they can be enqueued
- * through the block editor in the corresponding context.
- *
- * @see https://developer.wordpress.org/reference/functions/register_block_type/
- */
-function register_block_jesse_james_block_plugin_scaffold() {
-
-  // Set up block directory
-  $block_dir = get_stylesheet_directory() . '/assets/blocks/';
-
-  // Block scaffold experiments
-  $block_jess_block_plugin_scaffold_experiments = $block_dir . '/jesse-james-wp-block-plugin-scaffold/jess-block-scaffold-experiments.php';
-  include_once( $block_jess_block_plugin_scaffold_experiments );
-
-}
-add_action( 'init', 'register_block_jesse_james_block_plugin_scaffold' );
-
-
 
 /**
  * Add pre-styles.css - for resets, etc.
@@ -68,7 +83,6 @@ add_action('wp_enqueue_scripts', function () {
 add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style( 'jess-blocks-child-style', get_stylesheet_directory_uri() . '/style.css' );
 });
-
 
 /**
  * Enqueue a script
@@ -100,41 +114,29 @@ function jesse_james_blocks_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'jesse_james_blocks_scripts' );
 
-// Allow SVG
-add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mimes) {
+/**
+ * Registers the block using the metadata loaded from the `block.json` file.
+ * Behind the scenes, it registers also all assets so they can be enqueued
+ * through the block editor in the corresponding context.
+ *
+ * @see https://developer.wordpress.org/reference/functions/register_block_type/
+ */
+function register_block_jesse_james_block_plugin_scaffold() {
+  // Set up block directory
+  $block_dir = get_stylesheet_directory() . '/assets/blocks/';
 
-    global $wp_version;
-    if ( $wp_version !== '4.7.1' ) {
-       return $data;
-    }
-  
-    $filetype = wp_check_filetype( $filename, $mimes );
-  
-    return [
-        'ext'             => $filetype['ext'],
-        'type'            => $filetype['type'],
-        'proper_filename' => $data['proper_filename']
-    ];
-  
-  }, 10, 4 );
-  
-  function cc_mime_types( $mimes ){
-    $mimes['svg'] = 'image/svg+xml';
-    return $mimes;
-  }
-  add_filter( 'upload_mimes', 'cc_mime_types' );
-  
-  function fix_svg() {
-    echo '<style type="text/css">
-          .attachment-266x266, .thumbnail img {
-               width: 100% !important;
-               height: auto !important;
-          }
-          </style>';
-  }
-  add_action( 'admin_head', 'fix_svg' );
+  // Block scaffold experiments
+  $block_jess_block_plugin_scaffold_experiments = $block_dir . '/jesse-james-wp-block-plugin-scaffold/jess-block-scaffold-experiments.php';
+  include_once( $block_jess_block_plugin_scaffold_experiments );
+}
+add_action( 'init', 'register_block_jesse_james_block_plugin_scaffold' );
 
-
+/**
+ * SVG URL Encode
+ * 
+ * @param string $svg_path Path to SVG file.
+ * @return string URL encoded SVG data.
+ */
 function jj_svg_urlencode( $svg_path ) {
 	$data = file_get_contents( $svg_path );
 		// $data = preg_replace('/\v(?:[\v\h]+)/', ' ', $data);
@@ -152,8 +154,13 @@ function jj_svg_urlencode( $svg_path ) {
 
 // echo jj_svg_urlencode( './Logo-Planck-full.svg');
 
+/**
+ * Get Tags by Shared Category Shortcode
+ * 
+ * @param array $atts Shortcode attributes.
+ * @return string List of tags.
+ */
 add_shortcode('category_tags_list', 'get_tags_by_shared_category_shortcode');
-
 function get_tags_by_shared_category_shortcode($atts) {
   // Extract category slug from shortcode attribute (if provided)
   $category_slug = isset($atts['category']) ? $atts['category'] : '';
