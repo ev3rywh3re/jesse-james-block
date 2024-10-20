@@ -28,7 +28,7 @@ document.addEventListener( 'DOMContentLoaded', function( event ) {
        // window.pageYOffSet || document.documentElement.scrollTop
 
 	   const CalcRotate = WinTop / 10 % Math.PI;
-		//const stg_ms_header = document.querySelector(".stg-multisite-header-");
+		const stg_ms_header = document.querySelector(".stg-multisite-header-");
 		//old const stg_ms_header = document.getElementById( 'site-header' );
 		const LogoContainer = document.querySelector(".stg-logo-svg");
 		//old const LogoContainer = document.getElementById( 'custom-logo-link' );
@@ -36,8 +36,10 @@ document.addEventListener( 'DOMContentLoaded', function( event ) {
 
 		if ( 1 < WinTop ) {
 			LogoContainer.style.transform = 'rotate(' + CalcRotate + 'rad)';
+			stg_ms_header.classList.add( 'site-header-fixed-' );
 		} else {
 			WinBody.style.paddingTop = '0px';
+			stg_ms_header.classList.remove( 'site-header-fixed-' );
 		}
 		//console.log( 'Horizontally: ' + WinLeft + 'px<br>Vertically: ' + WinTop + 'px' );
 		//console.log( LogoContainer.style.transform );

@@ -28,3 +28,6 @@ This has the npm basic wordpress packages wp-scripts and elements for block buil
 npm install -D tailwindcss
 npx tailwindcss init
 ```
+
+NPX stylesheet generation with tailwind:
+npx tailwindcss -i ./tailwind.css -o ./style.css --watch

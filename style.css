@@ -579,7 +579,6 @@ video {
 }
 
 @tailwind utilities
-
 /*
 Jesse James - Theme CSS Start
 */
@@ -599,7 +598,7 @@ Attempt to fix nexted gallery thumbnail images.
 }
 
 body.logged-in > .site-header-fixed- {
-  top: 32px !important;
+  top: 0px !important;
 }
 
 .stg-multisite-header- {
