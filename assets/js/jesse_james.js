@@ -4,11 +4,6 @@
 
 window.addEventListener("load", function(event) {
 	//do work
-	window.scrollTo({
-	  top: 100,
-	  behavior: 'smooth'
-	});
-
 	var go_y = window.scrollY
 	console.log(go_y);
 });
@@ -40,11 +35,9 @@ document.addEventListener( 'DOMContentLoaded', function( event ) {
 		const WinBody = document.body;
 
 		if ( 1 < WinTop ) {
-			stg_ms_header.classList.add( 'site-header-fixed-' );
 			LogoContainer.style.transform = 'rotate(' + CalcRotate + 'rad)';
 		} else {
-			stg_ms_header.classList.remove( 'site-header-fixed-' );
-			//WinBody.style.paddingTop = '0px';
+			WinBody.style.paddingTop = '0px';
 		}
 		//console.log( 'Horizontally: ' + WinLeft + 'px<br>Vertically: ' + WinTop + 'px' );
 		//console.log( LogoContainer.style.transform );

@@ -32,20 +32,18 @@ Attempt to fix nexted gallery thumbnail images.
 
 .wp-block-gallery.has-nested-images figure.wp-block-image img {
 	width: 5em !important;
-  }
-  
-  /* Start - Multisite Menu */
-  
-  :root {
+}
+
+/* Start - Multisite Menu */
+
+:root {
 	--mainColor: #066000;
-  }
+}
   
-  body.logged-in > .site-header-fixed- {
-	top: 32px !important;
-  }
+
   
   .stg-multisite-header- {
-	position: relative;
+	position: fixed;
   
 	z-index: 9998;
 	width: 100%;
@@ -58,10 +56,7 @@ Attempt to fix nexted gallery thumbnail images.
 	padding-right: 0;
 	margin: 0 0 0 0;
   }
-  
-  .site-header-fixed- {
-	position: fixed;
-  }
+
   
   .stg-logo-svg {
 	width: 42px;

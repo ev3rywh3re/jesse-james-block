@@ -1,11 +1,36 @@
 <!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group">
+	
 	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"space-between"}} -->
 	<div class="wp-block-group alignwide" style="padding-bottom:var(--wp--preset--spacing--40)">
-		<!-- wp:site-title {"level":0} /-->
 		<!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"left"}} -->
 		<div class="wp-block-group">
-			<!-- wp:navigation {"layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"right"}} /-->
+
+			<div id="stg-multisite-header" class="stg-multisite-header-">
+
+				<div class="stg-site-title-container-">
+				<!-- wp:site-title /-->
+				</div>	
+
+				<section class="stg-ms-nav">
+
+				  <div id="stg-logo-container" class="stg-logo-container-">
+				  <a class="custom-logo-link-" href="https://swampthings-local.ddev.site"><img class="stg-logo-svg" src="https://swampthings-local.ddev.site/wp-content/themes/jesse-james-block/assets/images/logo-planck-full-2024.svg
+				"></a>
+				  </div>
+				  
+				  <label class='stg-menu-button-container' for="stg-menu-toggle">
+					<span class='stg-menu-button'></span>
+				  </label>
+				
+				  <ul class="stg-ms-menu" aria-expanded="false">
+					<li><a href="/portfolio">Portfolio</a></li>
+					<li><a href="/about/">About</a></li>
+					<li><a href="/contact/">Contact</a></li>
+				  </ul>
+				</section>
+				
+				</div>
 		</div>
 		<!-- /wp:group -->
 	</div>
