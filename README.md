@@ -29,5 +29,5 @@ npm install -D tailwindcss
 npx tailwindcss init
 ```
 
-NPX stylesheet generation with tailwind:
+Watch stylesheet generation with tailwind:
 npx tailwindcss -i ./tailwind.css -o ./style.css --watch
