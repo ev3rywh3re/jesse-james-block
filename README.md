@@ -31,3 +31,6 @@ npx tailwindcss init
 
 Watch stylesheet generation with tailwind:
 npx tailwindcss -i ./tailwind.css -o ./style.css --watch
+
+Here is the command to build the CSS:
+npm run build:css
