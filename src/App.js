@@ -19,7 +19,7 @@ function App() {
       setFigureHtml(figure);
     };
 
-    const intervalId = setInterval(fetchData, 12000); 
+    const intervalId = setInterval(fetchData, 4000); 
 
     return () => clearInterval(intervalId); 
   }, []);
