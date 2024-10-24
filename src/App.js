@@ -1,35 +1,52 @@
-import { Component } from '@wordpress/element'; 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 function App() {
   const [figureHtml, setFigureHtml] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const fetchData = useCallback(async () => {
+    try {
+      const baseUrl = window.location.origin;
+      const apiUrl = `${baseUrl}/wp-json/jess-block-scaffold-experiments/v1/open/29453`;
+      
+      const response = await fetch(apiUrl);
+      if (!response.ok) throw new Error('Network response was not ok');
+      
+      const data = await response.json();
+      setFigureHtml(prevFigure => {
+        // Only update if the new image is different
+        if (data.image !== prevFigure) {
+          return data.image;
+        }
+        return prevFigure;
+      });
+      setError(null);
+    } catch (err) {
+      console.error('Fetch error:', err);
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
-    const fetchData = async () => {
-      // Dynamically get the origin (protocol, domain, port) of the current page
-      const baseUrl = window.location.origin; 
+    // Initial fetch
+    fetchData();
 
-      // Construct the full API URL using the base URL
-      const apiUrl = `${baseUrl}/wp-json/jess-block-scaffold-experiments/v1/open/29453`;
+    // Set up interval for subsequent fetches
+    const intervalId = setInterval(fetchData, 4000);
 
-      const response = await fetch(apiUrl);
-      const data = await response.json();
-      const figure = data.image; 
-
-      setFigureHtml(figure);
-    };
-
-    const intervalId = setInterval(fetchData, 4000); 
-
-    return () => clearInterval(intervalId); 
-  }, []);
+    // Cleanup interval on component unmount
+    return () => clearInterval(intervalId);
+  }, [fetchData]);
 
   return (
     <div className="App">
-      {figureHtml ? (
+      {isLoading && !figureHtml && <p>Loading image...</p>}
+      {error && <div>Error: {error}</div>}
+      {figureHtml && (
         <div dangerouslySetInnerHTML={{ __html: figureHtml }} />
-      ) : (
-        <p>Loading image...</p>
       )}
     </div>
   );
