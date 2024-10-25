@@ -751,3 +751,11 @@ video {
 body.logged-in > .site-header-fixed- {
   top: 10px !important;
 }
+
+/* Fixing thihngs */
+
+/* why wp overlays? */
+
+.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim {
+  display: none;
+}
