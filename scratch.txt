@@ -28,3 +28,6 @@ https://swampthings-docker-local-new.ddev.site/wp-content/themes/jesse-james-blo
 https://swampthings-docker-local-new.ddev.site/wp-content/themes/jesse-james-block/assets/images/logo-planck-full-2024.svg
 
 `<img class="" src="https://swampthings-docker-local-new.ddev.site/wp-content/themes/jesse-james-block/assets/images/logo-planck-full-2024.svg " >`
+
+
+npm install @reduxjs/toolkit react-redux framer-motion
