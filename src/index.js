@@ -1,4 +1,14 @@
-import { render } from '@wordpress/element';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { store } from './store';
 import App from './App';
 
-render(<App />, document.getElementById('random-f-image')); 
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('random-f-image')
+);

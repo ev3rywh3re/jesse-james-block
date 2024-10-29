@@ -1,0 +1,11 @@
+.App {
+    position: relative;
+  }
+  
+  .App > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  

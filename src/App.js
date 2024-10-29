@@ -1,53 +1,46 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { motion, AnimatePresence } from 'framer-motion';
+import { fetchImage, startTransition, endTransition } from './features/imageSlice';
 
 function App() {
-  const [figureHtml, setFigureHtml] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  const fetchData = useCallback(async () => {
-    try {
-      const baseUrl = window.location.origin;
-      const apiUrl = `${baseUrl}/wp-json/jess-block-scaffold-experiments/v1/open/29453`;
-      
-      const response = await fetch(apiUrl);
-      if (!response.ok) throw new Error('Network response was not ok');
-      
-      const data = await response.json();
-      setFigureHtml(prevFigure => {
-        // Only update if the new image is different
-        if (data.image !== prevFigure) {
-          return data.image;
-        }
-        return prevFigure;
-      });
-      setError(null);
-    } catch (err) {
-      console.error('Fetch error:', err);
-      setError(err.message);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
+  const dispatch = useDispatch();
+  const { data: figureHtml, isLoading, error, isTransitioning } = useSelector(
+    (state) => state.image
+  );
 
   useEffect(() => {
+    const fetchData = async () => {
+      dispatch(startTransition());
+      await dispatch(fetchImage());
+      dispatch(endTransition());
+    };
+
     // Initial fetch
     fetchData();
 
-    // Set up interval for subsequent fetches
+    // Set up interval
     const intervalId = setInterval(fetchData, 4000);
 
-    // Cleanup interval on component unmount
     return () => clearInterval(intervalId);
-  }, [fetchData]);
+  }, [dispatch]);
 
   return (
     <div className="App">
       {isLoading && !figureHtml && <p>Loading image...</p>}
       {error && <div>Error: {error}</div>}
-      {figureHtml && (
-        <div dangerouslySetInnerHTML={{ __html: figureHtml }} />
-      )}
+      <AnimatePresence mode="wait">
+        {figureHtml && (
+          <motion.div
+            key={figureHtml} // This ensures a new animation when the content changes
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            dangerouslySetInnerHTML={{ __html: figureHtml }}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
