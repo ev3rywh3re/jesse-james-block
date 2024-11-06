@@ -34,3 +34,11 @@ npx tailwindcss -i ./tailwind.css -o ./style.css --watch
 
 Here is the command to build the CSS:
 npm run build:css
+
+##### The golden ratio plugin notes
+
+https://github.com/truefrontier/tailwindcss-golden-ratio
+
+```
+npm i -D tailwindcss-golden-ratio
+```

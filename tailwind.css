@@ -1,3 +1,27 @@
+/* stylelint-disable */
+/**
+ * Theme Name:  Jesse James Block
+ * Theme URI:    
+ * Description:  
+ * Author:       Jesse Planck
+ * Author URI:   
+ * Version:      1.0.0
+ * Tested up to: 6.5
+ * Requires PHP: 5.6
+ * License:      GPL-2.0
+ * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:  
+ * Domain Path:  /languages
+ * Tags:         block-styles, custom-colors, custom-logo, custom-menu, e-commerce, editor-style, one-column, theme-options, threaded-comments, translation-ready, wide-blocks
+ * Template:     twentytwentyfour
+ *
+ * This theme, like WordPress, is licensed under the GPL.
+ * Use it to make something cool, have fun, and share what you've learned with others.
+ *
+ * Copyright © 2019 GoDaddy Operating Company, LLC. All Rights Reserved.
+ */
+/* stylelint-enable */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
