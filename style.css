@@ -1,3 +1,29 @@
+/* stylelint-disable */
+
+/**
+ * Theme Name:  Jesse James Block
+ * Theme URI:    
+ * Description:  
+ * Author:       Jesse Planck
+ * Author URI:   
+ * Version:      1.0.0
+ * Tested up to: 6.5
+ * Requires PHP: 5.6
+ * License:      GPL-2.0
+ * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:  
+ * Domain Path:  /languages
+ * Tags:         block-styles, custom-colors, custom-logo, custom-menu, e-commerce, editor-style, one-column, theme-options, threaded-comments, translation-ready, wide-blocks
+ * Template:     twentytwentyfour
+ *
+ * This theme, like WordPress, is licensed under the GPL.
+ * Use it to make something cool, have fun, and share what you've learned with others.
+ *
+ * Copyright © 2019 GoDaddy Operating Company, LLC. All Rights Reserved.
+ */
+
+/* stylelint-enable */
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -106,9 +132,7 @@
   --tw-contain-style:  ;
 }
 
-/*
-! tailwindcss v3.4.14 | MIT License | https://tailwindcss.com
-*/
+/* ! tailwindcss v3.4.14 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -586,6 +610,81 @@ video {
   .container {
     max-width: 1536px;
   }
+}
+
+:root {
+  --gr: 1.61803398875;
+  --golden-ratio: 1.61803398875px;
+  --golden-ratio-base: 1.5;
+  --golden-ratio-unit: 1rem;
+  --golden-ratio-fixed-unit: 1px;
+  --golden-ratio-fixed-units-per-unit: 16;
+  --golden-ratio-1: 0.13525491562416744rem;
+  --golden-ratio-half-1: 0.06762745781208372rem;
+  --golden-ratio-double-1: 0.2705098312483349rem;
+  --golden-ratio-fixed-1: 2px;
+  --golden-ratio-fixed-half-1: 1px;
+  --golden-ratio-fixed-double-1: 4px;
+  --golden-ratio-2: 0.21884705062541632rem;
+  --golden-ratio-half-2: 0.10942352531270816rem;
+  --golden-ratio-double-2: 0.43769410125083263rem;
+  --golden-ratio-fixed-2: 4px;
+  --golden-ratio-fixed-half-2: 2px;
+  --golden-ratio-fixed-double-2: 7px;
+  --golden-ratio-3: 0.35410196624961554rem;
+  --golden-ratio-half-3: 0.17705098312480777rem;
+  --golden-ratio-double-3: 0.7082039324992311rem;
+  --golden-ratio-fixed-3: 6px;
+  --golden-ratio-fixed-half-3: 3px;
+  --golden-ratio-fixed-double-3: 11px;
+  --golden-ratio-4: 0.5729490168750833rem;
+  --golden-ratio-half-4: 0.28647450843754163rem;
+  --golden-ratio-double-4: 1.1458980337501665rem;
+  --golden-ratio-fixed-4: 9px;
+  --golden-ratio-fixed-half-4: 5px;
+  --golden-ratio-fixed-double-4: 18px;
+  --golden-ratio-5: 0.9270509831247821rem;
+  --golden-ratio-half-5: 0.46352549156239103rem;
+  --golden-ratio-double-5: 1.8541019662495641rem;
+  --golden-ratio-fixed-5: 15px;
+  --golden-ratio-fixed-half-5: 7px;
+  --golden-ratio-fixed-double-5: 30px;
+  --golden-ratio-6: 1.5rem;
+  --golden-ratio-half-6: 0.75rem;
+  --golden-ratio-double-6: 3rem;
+  --golden-ratio-fixed-6: 24px;
+  --golden-ratio-fixed-half-6: 12px;
+  --golden-ratio-fixed-double-6: 48px;
+  --golden-ratio-7: 2.427050983125rem;
+  --golden-ratio-half-7: 1.2135254915625rem;
+  --golden-ratio-double-7: 4.85410196625rem;
+  --golden-ratio-fixed-7: 39px;
+  --golden-ratio-fixed-half-7: 19px;
+  --golden-ratio-fixed-double-7: 78px;
+  --golden-ratio-8: 3.9270509831253526rem;
+  --golden-ratio-half-8: 1.9635254915626763rem;
+  --golden-ratio-double-8: 7.854101966250705rem;
+  --golden-ratio-fixed-8: 63px;
+  --golden-ratio-fixed-half-8: 31px;
+  --golden-ratio-fixed-double-8: 126px;
+  --golden-ratio-9: 6.354101966250923rem;
+  --golden-ratio-half-9: 3.1770509831254614rem;
+  --golden-ratio-double-9: 12.708203932501846rem;
+  --golden-ratio-fixed-9: 102px;
+  --golden-ratio-fixed-half-9: 51px;
+  --golden-ratio-fixed-double-9: 203px;
+  --golden-ratio-10: 10.281152949377198rem;
+  --golden-ratio-half-10: 5.140576474688599rem;
+  --golden-ratio-double-10: 20.562305898754396rem;
+  --golden-ratio-fixed-10: 164px;
+  --golden-ratio-fixed-half-10: 82px;
+  --golden-ratio-fixed-double-10: 329px;
+  --golden-ratio-11: 16.635254915629613rem;
+  --golden-ratio-half-11: 8.317627457814806rem;
+  --golden-ratio-double-11: 33.270509831259226rem;
+  --golden-ratio-fixed-11: 266px;
+  --golden-ratio-fixed-half-11: 133px;
+  --golden-ratio-fixed-double-11: 532px;
 }
 
 .visible {
