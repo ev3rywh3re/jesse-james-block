@@ -31,6 +31,12 @@
   --mainColor: #066000;
 }
 
+/* START - Structure with golden ratio */
+
+
+
+/* END - Structure with golden ratio */
+
 /* Multisite Menu Styles */
 .stg-multisite-header- {
   position: relative;
@@ -89,7 +95,7 @@
 }
 
 .stg-ms-menu > li {
-  margin: 0 1rem;
+  margin: 0 var(--golden-ratio-5); 
 }
 
 /* Adjust header position for logged-in users */
@@ -103,3 +109,4 @@ body.logged-in > .site-header-fixed- {
 .wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim {
   display: none;
 }
+
