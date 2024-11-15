@@ -578,6 +578,12 @@ video {
   display: none;
 }
 
+a {
+  --tw-text-opacity: 1;
+  color: rgb(30 58 138 / var(--tw-text-opacity));
+  text-decoration: underline  ;
+}
+
 :root {
   --gr: 1.61803398875;
   --golden-ratio: 1.61803398875px;
@@ -660,6 +666,10 @@ video {
 }
 
 /* START - Structure with golden ratio */
+
+body {
+  line-height:normal;
+}
 
 /* END - Structure with golden ratio */
 

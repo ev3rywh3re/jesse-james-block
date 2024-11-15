@@ -26,14 +26,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  a {
+    @apply text-blue-900;
+    text-decoration: underline  ;
+  }
+}
+
 /* Theme variables */
 :root {
   --mainColor: #066000;
 }
 
+
+
 /* START - Structure with golden ratio */
 
-
+body {
+  line-height:normal;
+}
 
 /* END - Structure with golden ratio */
 
