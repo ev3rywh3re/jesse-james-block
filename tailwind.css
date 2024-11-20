@@ -42,8 +42,6 @@
   --mainColor: #066000;
 }
 
-
-
 /* START - Structure with golden ratio */
 
 body {
@@ -61,7 +59,7 @@ body {
   background-color: #fff;
   top: 0;
   padding: 0.3em 0;
-  margin-top: calc(var(--golden-ratio) * 5); 
+  margin-top: 0; 
   margin-bottom: calc(var(--golden-ratio) * 5); 
   margin-left: calc(var(--golden-ratio) * 15); 
   margin-right: calc(var(--golden-ratio) * 15); 
@@ -69,6 +67,10 @@ body {
 
 .site-header-fixed- {
   position: fixed;
+}
+
+.stg-site-title-container- {
+  margin-bottom: calc(var(--golden-ratio) * 5); 
 }
 
 .stg-logo-svg {
@@ -118,11 +120,6 @@ body {
   margin: 0 var(--golden-ratio-5); 
 }
 
-/* Adjust header position for logged-in users */
-body.logged-in > .site-header-fixed- {
-  top: 10px !important;
-}
-
 /* Fixing thihngs */
 
 /* why wp overlays? */
@@ -130,3 +127,7 @@ body.logged-in > .site-header-fixed- {
   display: none;
 }
 
+/* Adjust header position for logged-in users */
+body.logged-in > .site-header-fixed- {
+  top: 10px !important;
+}
