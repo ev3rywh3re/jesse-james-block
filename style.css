@@ -703,9 +703,8 @@ body {
   margin-bottom: calc(var(--golden-ratio) * 5);
 }
 
-.stg-logo-svg {
-  width: 42px;
-  height: 42px;
+.stg-logo-container- {
+  width: 2.8rem;
 }
 
 .stg-ms-nav {
