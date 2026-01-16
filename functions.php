@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Jesse_James_Blocks functions
  *
@@ -22,31 +23,33 @@ add_action('after_setup_theme', 'jesse_james_add_block_template_file_support');
 
 // Allow SVG
 add_filter(
-    'wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes) {
+    'wp_check_filetype_and_ext',
+    function ($data, $file, $filename, $mimes) {
 
         global $wp_version;
-        if ($wp_version !== '4.7.1' ) {
+        if ($wp_version !== '4.7.1') {
             return $data;
         }
-  
+
         $filetype = wp_check_filetype($filename, $mimes);
-  
+
         return [
         'ext'             => $filetype['ext'],
         'type'            => $filetype['type'],
         'proper_filename' => $data['proper_filename']
         ];
-  
-    }, 10, 4 
+    },
+    10,
+    4
 );
-  
-function cc_mime_types( $mimes )
+
+function cc_mime_types($mimes)
 {
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
 }
 add_filter('upload_mimes', 'cc_mime_types');
-  
+
 function fix_svg()
 {
     echo '<style type="text/css">
@@ -60,27 +63,70 @@ add_action('admin_head', 'fix_svg');
 
 /**
  * Enqueue React scripts.
- * Includes wp-element dependency. 
+ * Includes wp-element dependency.
  */
 function jesse_james_react_scripts()
 {
     wp_enqueue_script(
-        'jesse-james-react-app', 
-        get_stylesheet_directory_uri() . '/build/index.js', 
+        'jesse-james-react-app',
+        get_stylesheet_directory_uri() . '/build/index.js',
         array( 'wp-element', 'wp-data' ), // Add 'wp-data' here
-        '1.0.0', 
-        true 
-    );  
+        '1.0.0',
+        true
+    );
 
     wp_enqueue_style('jesse-james-react-theme-style', get_stylesheet_uri());
 }
 add_action('wp_enqueue_scripts', 'jesse_james_react_scripts');
 
+
+/**
+ * Enqueues the compiled React application assets.
+ */
+function jesse_james_enqueue_react_app()
+{
+    $theme_version = wp_get_theme()->get('Version');
+
+    // Define paths to our built asset files
+    $style_path = get_template_directory() . '/assets/dist/react-app/style.css';
+    $script_path = get_template_directory() . '/assets/dist/react-app/main.js';
+
+    $style_uri = get_template_directory_uri() . '/assets/dist/react-app/style.css';
+    $script_uri = get_template_directory_uri() . '/assets/dist/react-app/main.js';
+
+    // Enqueue the stylesheet only if the file exists
+    if (file_exists($style_path)) {
+        wp_enqueue_style(
+            'jesse-james-react-app-styles',
+            $style_uri,
+            [], // No style dependencies
+            filemtime($style_path) // Auto-version for cache busting
+        );
+    }
+
+    // Enqueue the script only if the file exists
+    if (file_exists($script_path)) {
+        wp_enqueue_script(
+            'jesse-james-react-app-script',
+            $script_uri,
+            ['wp-element'], // Dependency: 'wp-element' is WordPress's handle for React
+            filemtime($script_path), // Auto-version for cache busting
+            true // Load the script in the footer
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'jesse_james_enqueue_react_app');
+
+
+
+
+
 /**
  * Add pre-styles.css - for resets, etc.
  */
 add_action(
-    'wp_enqueue_scripts', function () {
+    'wp_enqueue_scripts',
+    function () {
         wp_enqueue_style('jess-blocks-child-pre-style', get_stylesheet_directory_uri() . '/assets/css/pre-style.css');
     }
 );
@@ -89,7 +135,8 @@ add_action(
  * Add Child styles.css
  */
 add_action(
-    'wp_enqueue_scripts', function () {
+    'wp_enqueue_scripts',
+    function () {
         wp_enqueue_style('jess-blocks-child-style', get_stylesheet_directory_uri() . '/style.css');
     }
 );
@@ -99,10 +146,10 @@ add_action(
  */
 function jesse_james_enqueue_scripts()
 {
-    wp_enqueue_script( 
-        'jesse-james-js', 
+    wp_enqueue_script(
+        'jesse-james-js',
         get_stylesheet_directory_uri() . '/assets/js/jesse_james.js',
-        array(), 
+        array(),
         '1.0.0',
         array(
         'in_footer' => true,
@@ -146,11 +193,11 @@ add_action('init', 'register_block_jesse_james_block_plugin_scaffold');
 
 /**
  * SVG URL Encode
- * 
+ *
  * @param  string $svg_path Path to SVG file.
  * @return string URL encoded SVG data.
  */
-function jj_svg_urlencode( $svg_path )
+function jj_svg_urlencode($svg_path)
 {
     $data = file_get_contents($svg_path);
     // $data = preg_replace('/\v(?:[\v\h]+)/', ' ', $data);
@@ -170,7 +217,7 @@ function jj_svg_urlencode( $svg_path )
 
 /**
  * Get Tags by Shared Category Shortcode
- * 
+ *
  * @param  array $atts Shortcode attributes.
  * @return string List of tags.
  */

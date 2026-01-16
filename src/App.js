@@ -3,6 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fetchImage, startTransition, endTransition } from './features/imageSlice';
 
+import { animate } from "motion";
+
+animate("h1", { opacity: [0, 1] }, { duration: 4 });
+// Add more of your animation code here
+
+
 function App() {
   const dispatch = useDispatch();
   const { data: figureHtml, isLoading, error, isTransitioning } = useSelector(
