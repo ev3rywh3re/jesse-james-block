@@ -2,7 +2,7 @@
 
 This repository contains the code for the "Jesse James Block" WordPress theme.
 
-This is an experimentat WordPress Child Theme using the twentytwentyfour theme as a base with a focus on full site editing and customization.
+This is an experimental WordPress Child Theme using the twentytwentyfour theme as a base with a focus on full site editing and customization.
 
 ## Installation
 
