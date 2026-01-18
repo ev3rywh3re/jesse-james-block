@@ -13,7 +13,7 @@ document.addEventListener( 'DOMContentLoaded', function( event ) {
 	const stg_ms_header = document.querySelector(".stg-multisite-header-");
 	const stg_ms_header_height = stg_ms_header.offsetHeight;
 	const WinBody = document.body;
-	WinBody.style.paddingTop = stg_ms_header_height + 'px';
+	// WinBody.style.paddingTop = stg_ms_header_height + 'px';
 	const WinTop = window.pageYOffset || document.documentElement.scrollTop;
 	const WinLeft = window.pageXOffset || document.documentElement.scrollLeft;
 

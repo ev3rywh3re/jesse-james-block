@@ -40,12 +40,15 @@
 /* Theme variables */
 :root {
   --mainColor: #066000;
+  --wp--style--root--padding-top: 0px;
 }
+
 
 /* START - Structure with golden ratio */
 
 body {
   line-height:normal;
+  padding-top: 0;
 }
 
 /* END - Structure with golden ratio */
@@ -58,15 +61,18 @@ body {
   grid-template-columns: 100px 1fr;
   background-color: #fff;
   top: 0;
-  padding: 0.3em 0;
+  padding: 0.3em .5em;
   margin-top: 0; 
-  margin-bottom: calc(var(--golden-ratio) * 5); 
-  margin-left: calc(var(--golden-ratio) * 15); 
-  margin-right: calc(var(--golden-ratio) * 15); 
+  margin-bottom: 1em; 
+  margin-left: 0; 
+  margin-right: 0; 
 }
 
 .site-header-fixed- {
   position: fixed;
+  margin-left: 0; 
+  margin-right: 0; 
+  box-shadow: 5px 5px 10px rgba(1, 55, 5, 0.5);
 }
 
 .stg-site-title-container- {
@@ -86,8 +92,7 @@ body {
   color: #000;
   height: 50px;
   padding: 1em;
-  margin-left: calc(var(--golden-ratio) * 15);
-  margin-right: calc(var(--golden-ratio) * 15);
+  margin: 0;
 }
 
 .stg-ms-menu {
@@ -128,5 +133,5 @@ body {
 
 /* Adjust header position for logged-in users */
 body.logged-in > .site-header-fixed- {
-  top: 10px !important;
+  margin-top: 90px !important;
 }
