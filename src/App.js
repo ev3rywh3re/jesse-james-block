@@ -1,15 +1,29 @@
 import React, { useEffect } from 'react';
+import ReactDOM from 'react-dom/client';
 import { useDispatch, useSelector } from 'react-redux';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fetchImage, startTransition, endTransition } from './features/imageSlice';
-
+import TimelineAnimation from './animations/TimelineAnimation';
+import InteractiveAnimation from './animations/InteractiveAnimation';
+import ToggleControl from './ToggleControl';
 import { animate } from "motion";
 
 animate("h1", { opacity: [0, 1] }, { duration: 4 });
 // Add more of your animation code here
 
-
 function App() {
+
+    // Basic styling for the container
+  const appStyles = {
+    fontFamily: 'sans-serif',
+    color: '#eee',
+    backgroundColor: '#111',
+    padding: '2rem',
+    maxWidth: '800px',
+    margin: '2rem auto',
+    borderRadius: '12px'
+  };
+
   const dispatch = useDispatch();
   const { data: figureHtml, isLoading, error, isTransitioning } = useSelector(
     (state) => state.image
@@ -50,5 +64,13 @@ function App() {
     </div>
   );
 }
+
+const container = document.getElementById('jesse-james-toggle-root');
+
+// Create a root
+const root = ReactDOM.createRoot(container);
+
+// Render the component to the root
+root.render(<ToggleControl />);
 
 export default App;

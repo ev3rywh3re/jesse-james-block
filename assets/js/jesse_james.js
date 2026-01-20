@@ -17,7 +17,6 @@ document.addEventListener( 'DOMContentLoaded', function( event ) {
 	const WinTop = window.pageYOffset || document.documentElement.scrollTop;
 	const WinLeft = window.pageXOffset || document.documentElement.scrollLeft;
 
-
 	window.addEventListener( 'scroll', function() {
 		//do work
 		const WinTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -46,4 +45,9 @@ document.addEventListener( 'DOMContentLoaded', function( event ) {
 
 	});
 
+
+
+	
 });
+
+
