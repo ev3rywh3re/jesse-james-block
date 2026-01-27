@@ -1,42 +1,68 @@
-import { startOptimizedAppearAnimation } from 'framer-motion';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion as fm, AnimatePresence } from 'framer-motion';
+// We don't need Motion One or Theatre.js for this specific class-based example,
+// but we'll keep the structure.
+import { animate } from 'motion';
+import RollingBoxAnimation from './RollingBoxAnimation';
 
-/**
- * A simple component that controls the visibility of an external element
- * by adding or removing CSS classes.
- */
-export default function ToggleControl() {
-  // 'useState' holds the current state (true = open, false = closed).
-  const [isOpen, setIsOpen] = useState(true);
+// --- THE REACT COMPONENT ---
 
-  // 'useEffect' runs after the component renders and whenever 'isOpen' changes.
-  // This is where we interact with the DOM outside of our component.
-  useEffect(() => {
-    const panel = document.getElementById('jesse-james-react-root');
-    if (!panel) return; // Safety check
-
-    if (isOpen) {
-      panel.classList.add('jj-panel-open');
-      panel.classList.remove('jj-panel-closed');
-    } else {
-      panel.classList.remove('jj-panel-open');
-      panel.classList.add('jj-panel-closed');
-    }
-  }, [isOpen]); // The [isOpen] dependency array ensures this code only runs when the state changes.
-
-  const toggleStyle = {
-    cursor: 'pointer',
-    textDecoration: 'underline',
-    color: '#000000',
-    fontWeight: 'bold',
-    fontSize: '.5rem',
-    userSelect: 'none', // Prevents text highlighting on click
-  };
+const ToggleControl = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <span style={toggleStyle} onClick={() => setIsOpen(!isOpen)}>
-      {isOpen ? 'close' : 'open'}
-    </span>
-  );
-}
+    <div style={{ padding: '.2rem', fontFamily: 'sans-serif' }}>
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        style={{
+          marginBottom: '.5rem',
+          padding: '.2em .5em',
+          fontSize: '1.2em',
+          fontWeight: 'bold',
+          cursor: 'pointer',
+          width: '4em',
+        }}
+      >
+        {isOpen ? 'Close' : 'Open'}
+      </div>
 
+      <AnimatePresence>
+        {isOpen && <AnimationSandbox />}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+// --- The Animation Sandbox Component ---
+const AnimationSandbox = () => {
+  // State for the standard CSS transition example
+  const [isCssBoxVisible, setCssBoxVisible] = useState(false);
+
+  // This effect will trigger the animation for the standard CSS box.
+  // We need a slight delay to ensure the browser registers the initial state
+  // before applying the 'visible' class, which triggers the transition.
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCssBoxVisible(true);
+    }, 100); // A tiny delay is often sufficient
+
+    return () => clearTimeout(timer); // Cleanup the timer
+  }, []); // Runs only once when the component mounts
+
+  return (
+    <div>
+      <h2>Animation Sandbox</h2>
+
+      {/* Standard CSS Transition Box */}
+
+
+      {/* Framer Motion Rolling Box Animation */}
+      <RollingBoxAnimation isAnimating={true} />
+    </div> 
+  );
+};
+
+export default ToggleControl;
+
+
+/* Testing workspace for App.js */

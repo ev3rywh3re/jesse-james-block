@@ -9,3 +9,31 @@
     width: 100%;
   }
   
+  /* --- Add this to your CSS file --- */
+
+/* Base styles for all boxes */
+.box {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+/* The "enter" animation using a standard CSS transition */
+.css-transition-box {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* The final, visible state for the CSS transition box */
+.css-transition-box.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- For the Framer Motion Example --- */
+/* We only need to define the final state. Framer Motion will animate from the initial styles. */
+.framer-box-visible {
+  opacity: 1;
+  transform: translateY(0px);
+}

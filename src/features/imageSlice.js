@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+// Async thunk to fetch image data
 export const fetchImage = createAsyncThunk(
   'image/fetchImage',
   async () => {
@@ -11,6 +12,7 @@ export const fetchImage = createAsyncThunk(
   }
 );
 
+// Image slice definition with reducers and extraReducers
 const imageSlice = createSlice({
   name: 'image',
   initialState: {
@@ -19,7 +21,7 @@ const imageSlice = createSlice({
     error: null,
     isTransitioning: false
   },
-  reducers: {
+  reducers: { 
     startTransition: (state) => {
       state.isTransitioning = true;
     },

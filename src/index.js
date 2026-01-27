@@ -16,14 +16,4 @@ rootB.render(
   document.getElementById('random-f-image')
 );
 
-
-
-const container = document.getElementById('jesse-james-toggle-root');
-
-// Create a root
-const root = ReactDOM.createRoot(container);
-
-// Render the component to the root
-root.render(<ToggleControl />);
-
 export default App;
