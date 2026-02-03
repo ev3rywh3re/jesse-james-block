@@ -9,7 +9,6 @@ import { ReactComponent as PlanckLogo } from './logo-planck-full-2024.svg';
 
 
 // --- THE REACT COMPONENT ---
-
 const ToggleControl = () => {
   const [isOpen, setIsOpen] = useState(false);
 
