@@ -3,6 +3,8 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
+// importing Logo SVG as a React component
+import { ReactComponent as PlanckLogo } from './logo-planck-full-2024.svg';
 
 /**
  * A component that displays a box rolling animation when active.
@@ -60,6 +62,7 @@ export default function RollingBoxAnimation({ isAnimating }) {
                 >
                     {/* This is the green square that will be animated */}
                     <rect width="50" height="50" fill="#8df0cc" />
+                    <PlanckLogo style={{ width: '3.4rem', height: 'auto', marginBottom: '1rem' }} />
                 </motion.svg>
             )}
         </AnimatePresence>

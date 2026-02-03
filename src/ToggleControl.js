@@ -4,6 +4,9 @@ import { motion as fm, AnimatePresence } from 'framer-motion';
 // but we'll keep the structure.
 import { animate } from 'motion';
 import RollingBoxAnimation from './RollingBoxAnimation';
+// importing an SVG as a React component
+import { ReactComponent as PlanckLogo } from './logo-planck-full-2024.svg';
+
 
 // --- THE REACT COMPONENT ---
 
@@ -58,6 +61,7 @@ const AnimationSandbox = () => {
 
       {/* Framer Motion Rolling Box Animation */}
       <RollingBoxAnimation isAnimating={true} />
+
     </div> 
   );
 };
