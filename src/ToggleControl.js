@@ -19,7 +19,7 @@ const ToggleControl = () => {
         style={{
           marginBottom: '.5rem',
           padding: '.2em .5em',
-          fontSize: '1.2em',
+          fontSize: '.4em',
           fontWeight: 'bold',
           cursor: 'pointer',
           width: '4em',

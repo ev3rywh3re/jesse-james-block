@@ -62,6 +62,7 @@ export default function RollingBoxAnimation({ isAnimating }) {
                     }}
                 >
                     {/* This is the green square that will be animated */}
+                    
                     <rect width="50" height="50" fill="#8c88ea" />
                     <PlanckLogo style={{ width: '3.4rem', height: 'auto', marginBottom: '1rem' }} />
 
