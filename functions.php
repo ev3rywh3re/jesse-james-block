@@ -159,19 +159,6 @@ function jesse_james_enqueue_scripts()
 }
 add_action('wp_enqueue_scripts', 'jesse_james_enqueue_scripts');
 
-/**
- * Theme scripts and styles.
- */
-function jesse_james_blocks_scripts()
-{
-    wp_enqueue_style(
-        'go-child-style',
-        get_stylesheet_uri(),
-        array( 'jesse_james_blocks-style' ),
-        JESSE_JAMES_BLOCKS_VERSION
-    );
-}
-add_action('wp_enqueue_scripts', 'jesse_james_blocks_scripts');
 
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
